@@ -1,8 +1,9 @@
 
 public class Customer {
 	private int customerId;
-	private String name;
-	private String phone;
+	private  static int nextCustomerId;
+	private static String name;
+	private static String phone;
 	
 
 	public Customer() {
@@ -10,14 +11,11 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(int id, String name, String phone) {
+	public Customer( String name, String phone) {
 		super();
-		this.customerId = id;
-		this.name = name;
-		this.phone = phone;
-	}
-	public Customer(String name, String phone) {
-		super();
+		
+		nextCustomerId++;
+		this.customerId = nextCustomerId;
 		this.name = name;
 		this.phone = phone;
 	}
@@ -42,7 +40,7 @@ public class Customer {
 		this.name = fullName;
 	}
 
-	public void setTelephoneNumber(String phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

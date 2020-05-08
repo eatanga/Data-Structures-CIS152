@@ -1,4 +1,4 @@
 
 public enum TableType {
-	Booth, HighTable
+	Booth, HighTable, family
 }

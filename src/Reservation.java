@@ -51,10 +51,6 @@ public class Reservation {
 		return table;
 	}
 
-	public int getTime() {
-		return startTime;
-	}
-
 	@Override
 	public String toString() {
 		return "Reservation [ReservationId=" + ReservationId + ", table=" + table + ", customer=" + customer

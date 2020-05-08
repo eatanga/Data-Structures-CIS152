@@ -1,9 +1,27 @@
 
+
 public class Table {
 	private long tableId;
 	private int size;
-	private TableType type;
+	private Customer customer;
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+	
+
+
+	public Table(int size) {
+		super();
+		this.size = size;
+	}
+
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 
 	public Table() {
 		super();
@@ -15,7 +33,6 @@ public class Table {
 		super();
 		this.tableId = tableId;
 		this.size = size;
-		this.type = type;
 	}
 
 
@@ -38,13 +55,26 @@ public class Table {
 		this.size = size;
 	}
 	
-	public TableType getType() {
-		return type;
+	public TableType getType(int size) {
+		if(size==1) {
+			return TableType.HighTable;
+		}else {
+		if(size == 2 ) {
+			return TableType.Booth;
+		}else {
+		if(size >2 && size <=5) {
+			return TableType.family;
+		}
+		else
+		{
+		return null;
+		}
+		}
+		}
 	}
 
 
 	public void setType(TableType type) {
-		this.type = type;
 	}
 
 
@@ -52,4 +82,5 @@ public class Table {
 		// check if this table is available begin from reserve time, the default duration is 2 hours.
 		return true;
 	}
+	
 }

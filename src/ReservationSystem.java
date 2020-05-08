@@ -6,6 +6,7 @@ public class ReservationSystem {
 //From 9am to 10pm, each hour have a list of tables
 	ArrayList<Table>[] tables;
 	
+	
 	int MAX_TIME = 2;//Maximum Reservation stay time
 
 	public Reservation getReservation(Customer customer) {
@@ -20,17 +21,28 @@ public class ReservationSystem {
 			map.put(customerId, newReservation);
 			removeTable(startTime, newTable);
 		} else {
-			System.out.println("No Available tables reservations");
+			System.out.println("No Available tables for reservation at the moment");
 		}
 	}
 
 	public void cancelReservation(Customer customer) {
 		Reservation newReservation = map.remove(customer.getCustomerId());
-		addTable(newReservation.getTime(), newReservation.getTable());
+		addTable(newReservation.getStartTime(), newReservation.getTable());
 	}
 
 	public Table findTable(int startTime, int size) {
-		ArrayList<Table> tableList = tables[startTime - 10];
+
+		ArrayList<Table> tableList = new ArrayList<Table>(10);
+		/*tableList.set(1,new Table(5));
+		tableList.set(1,new Table(5));
+		tableList.set(2,new Table(2));
+		tableList.set(3,new Table(1));
+		tableList.set(4,new Table(1));
+		tableList.set(5,new Table(2));
+		tableList.set(6,new Table(5));
+		tableList.set(7,new Table(2));
+		tableList.set(8,new Table(1));*/
+	
 		for (Table t : tableList) {
 			if (t.getSize() >= size) {
 				return t;
@@ -57,8 +69,8 @@ public class ReservationSystem {
 		}
 	}
 
-	public Reservation getReservation(Long customerId) {
+	/*public Reservation getReservation(Long customerId) {
 		return map.get(customerId);
-	}
+	}*/
 }
 
